@@ -2,6 +2,7 @@ package guru.springframework.msscjacksonexample.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Null;
@@ -43,5 +44,6 @@ public class BeerDto {
     private LocalDateTime lastModifiedDate;
 
     @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate myLocalDate;
 }
